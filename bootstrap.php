@@ -19,8 +19,9 @@
     $services->addServices('db',fn()=>$db);
     $db=$services->getService('db');
     $services->addServices('enrollmentRepository',fn()=>new EnrollmentRepository($db));
-   
+
     $router=new Router();
     $router->addRoute('GET','/',[new HomeController(),'index'])
-            ->addRoute('GET','/teachers',[new HomeController(),'teachers']);
+            ->addRoute('GET','/teachers',[new HomeController(),'teachers'])
+            ->addRoute('GET','/addUser',[new HomeController(),'addUser']);
 

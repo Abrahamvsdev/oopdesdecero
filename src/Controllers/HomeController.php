@@ -12,4 +12,8 @@
         function teachers(){
             echo 'teachers';
         }
+
+        function addUser(){
+            echo view('/addUser');
+        }
     }

@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>School <?=$name;?></h1>
+    <a href="/addUser">Añadir usuario</a>
 </body>
 </html>
