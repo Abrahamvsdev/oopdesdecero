@@ -23,6 +23,9 @@
         <label for="pass">Pass</label>
         <input type="pass" name="pass" id="pass">
 
+        <label for="dni">Dni</label>
+        <input type="text" name="dni" id="dni">
+
         <label for="type">Type</label>
         <input type="text" name="type">
 

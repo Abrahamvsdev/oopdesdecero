@@ -15,7 +15,7 @@
         function save(User $user){
             $stmt=$this->db->prepare("INSERT INTO users(uuid, username, lastname, email, pass, dni, type) VALUES(:uuid,:username,:lastname,:email,:pass,:dni,:type)");
             $stmt->execute([
-                'uudi'=>$user->getUuid(),
+                'uuid'=>$user->getUuid(),
                 'username'=>$user->getUsername(),
                 'lastname'=>$user->getLastName(),
                 'email'=>$user->getEmail(),
