@@ -4,9 +4,13 @@ namespace App\Controllers;
 
 use Ramsey\Uuid\Uuid;
 use App\School\Entities\User;
+use App\School\Repositories\IUserRepository;
 
-$username=$_POST['username'];
-$lastname=$_POST['lastname'];
+class addUserController{
+
+    
+    $username=$_POST['username'];
+    $lastname=$_POST['lastname'];
 $email=$_POST['email'];
 $pass=$_POST['pass'];
 $dni=$_POST['dni'];
@@ -27,3 +31,10 @@ $user = new User(
     $type);
     
     
+
+    if($user){
+        $servicio = new IUserRepository();
+        $lastInsertId = $servicio->save($user);
+    }
+    
+}

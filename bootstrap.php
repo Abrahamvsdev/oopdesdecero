@@ -1,9 +1,11 @@
 <?php
-    define('VIEWS',__DIR__.'/src/views');
-    require __DIR__.'/vendor/autoload.php';
-    $dotenv=Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
 
+define('VIEWS',__DIR__.'/src/views');
+require __DIR__.'/vendor/autoload.php';
+$dotenv=Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+use App\Controllers\addUserController;
     use App\Controllers\HomeController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;

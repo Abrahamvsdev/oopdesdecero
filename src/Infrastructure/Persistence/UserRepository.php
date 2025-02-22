@@ -2,8 +2,8 @@
     namespace App\Infrastructure\Persistence;
 
     
-    use App\School\Repositories\IUserRepository;
     use App\School\Entities\User;
+    use App\School\Repositories\IUserRepository;
     
     class UserRepository implements IUserRepository{
         private \PDO $db;
