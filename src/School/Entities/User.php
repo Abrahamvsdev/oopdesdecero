@@ -85,6 +85,7 @@
 
         function setType(string $type){
             $this->type=$type;
+            return $this;
         }
 
     

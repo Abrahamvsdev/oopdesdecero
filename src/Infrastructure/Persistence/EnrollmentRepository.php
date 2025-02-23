@@ -8,9 +8,11 @@
 
     class EnrollmentRepository implements IEnrollmentRepository{
         private \PDO $db;
+        
         function __construct(\PDO $db){
             $this->db=$db;
         }
+
         function save(Enrollment $enrollment){
             $stmt=$this->db->prepare("INSERT INTO enrollments() VALUES()");
             $stmt->execute([]);

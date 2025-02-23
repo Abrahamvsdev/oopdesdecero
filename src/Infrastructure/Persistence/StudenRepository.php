@@ -17,8 +17,7 @@ class StudentRepository implements IStudentRepository {
         $stmt = $this->db->prepare("INSERT INTO students(user_id, dni) VALUES (:user_id, :dni)");
         $stmt->execute([
             'user_id' => $student->getUuid(), 
-            'dni' => $student->getDni()      
-            //'department_id' => $student->
+            'dni' => $student->getDni()   
         ]);
         
     }
@@ -28,5 +27,5 @@ class StudentRepository implements IStudentRepository {
         $stmt->execute(['id'=>$id]);
         return $stmt->fetchObject(Student::class);
     }
-    
+
 }
