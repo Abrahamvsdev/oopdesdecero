@@ -21,14 +21,18 @@ class UserService{
         private ITeacherRepository $iteacherRepository;
         
         
-        public function __construct(IUserRepository $iuserRepository){
+        public function __construct(IUserRepository $iuserRepository,ITeacherRepository $iteacherRepository,IStudentRepository $istudentRepository){
             $this->iuserRepository = $iuserRepository;
+            $this->iteacherRepository = $iteacherRepository;
+            $this->istudentRepository = $istudentRepository;
         }
         
         public function save(User $user){
-            $this->iuserRepository->save($user);
+            $this->iuserRepository->save($user); // Guarda el User en la tabla 'users'
             
             $userType = $user->getType();
+            $userId = $user->getUuid(); // Usamos el UUID del User como user_id(la clave foránea)
+
             if ($userType === 'teacher') {
                 $teacher = new Teacher(
                     $user->getUuid(),
