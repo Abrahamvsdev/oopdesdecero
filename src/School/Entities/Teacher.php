@@ -12,9 +12,9 @@
 
         protected $department;
 
-        function __construct($email,$name){
-            parent::__construct($email,$name);
-            $this->updateTimestamps();
+        function __construct($uuid = null,$username,$lastname,$email,$password,$dni,$type,){
+            parent::__construct($uuid, $username, $lastname, $email, $password, $dni, $type);
+            $this->updateTimestamps();// Preguntar
         }
 
         public function addToDepartment(Department $dept){

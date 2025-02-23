@@ -10,18 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-        <label for="name">Name</label>
-        <input type="text" name="username" id="name">
+    <form action="/addUser" method="POST">
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username">
 
         <label for="email">Email</label>
-        <input type="email" name="email id="email">
+        <input type="email" name="email" id="email">
 
-        <label for="lastName">LastName</label>
-        <input type="text" name="lastName" id="lastName">
+        <label for="lastname">lastname</label> //TODO Observar bien en el examen, si el campo name está bien
+        <input type="text" name="lastname" id="lastname">
 
         <label for="pass">Pass</label>
-        <input type="pass" name="pass" id="pass">
+        <input type="password" name="pass" id="pass">
 
         <label for="dni">Dni</label>
         <input type="text" name="dni" id="dni">
@@ -29,7 +29,7 @@
         <label for="type">Type</label>
         <input type="text" name="type">
 
-        <button href="/addUserController">Enviar</button>
+        <button type="submit">Enviar</button>
     </form>
     
 </body>
