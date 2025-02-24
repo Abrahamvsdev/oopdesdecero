@@ -14,10 +14,11 @@ class StudentRepository implements IStudentRepository {
 
     public function save(Student $student)
     {
-        $stmt = $this->db->prepare("INSERT INTO students(user_id, dni) VALUES (:user_id, :dni)");
+        $stmt = $this->db->prepare("INSERT INTO students(user_id, dni, enrollment_year) VALUES (:user_id, :dni, :enrollment_year)");
         $stmt->execute([
             'user_id' => $student->getUuid(), 
-            'dni' => $student->getDni()   
+            'dni' => $student->getDni(),
+            'enrollment_year' => $student->getEnrollmentYear()  // TODO Añadir aquí, en la vista, addUserController, entidad(constructor, declarar con private, y el getter, pregutnar si el setter) 
         ]);
         
     }

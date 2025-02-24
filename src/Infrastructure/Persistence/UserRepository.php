@@ -19,7 +19,7 @@
                 'username'=>$user->getUsername(),
                 'lastname'=>$user->getLastName(),
                 'email'=>$user->getEmail(),
-                'pass'=>$user->getPassword(),
+                'password'=>$user->getPassword(),
                 'dni'=>$user->getDni(),
                 'type'=>$user->getType()
             ]);

@@ -13,6 +13,7 @@ use App\School\Repositories\IStudentRepository;
 use App\Infrastructure\Database\DatabaseConnection;
 use App\Infrastructure\Persistence\TeacherRepository;
 use App\Infrastructure\Persistence\UserRepository;
+use App\Infrastructure\Persistence\StudentRepository;
 
 class addUserController
 {
@@ -26,9 +27,10 @@ class addUserController
         $pass = $_POST['pass'];
         $dni = $_POST['dni'];
         $type = $_POST['type'];
+        $enrollmentYear = $_POST['enrollment_year'];
 
         // 2. "Validacion"
-        if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($dni) || empty($type)) {
+        if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($dni) || empty($type) || empty($enrollmentYear)) {
             echo "Error: Todos los campos son obligatorios."; // TODO Mejorar manejo de errores y vistas de error
             return;
         }
@@ -52,9 +54,9 @@ class addUserController
 
         // 5. Instanciar Servicios y Repositorio (Obtener conexión y repositorio correctamente (NO Interface))
         $db = DatabaseConnection::getConnection(); // Pillo DB
-        $userRepository = new IUserRepository($db); 
-        $teacherRepository = new ITeacherRepository($db); 
-        $studentRepository = new IStudentRepository($db);
+        $userRepository = new UserRepository($db); // Instancio el repo CONCRETO UserRepository
+        $teacherRepository = new TeacherRepository($db); 
+        $studentRepository = new StudentRepository($db);
         $userService = new UserService($userRepository,$teacherRepository,$studentRepository); // El orden importa, si estan en el orden incorrecto no es que esté mal, si no desordenados
 
         //6. Guardo el usuario usando el servicio, y me quedo con el lastinsert

@@ -17,7 +17,7 @@
         <label for="email">Email</label>
         <input type="email" name="email" id="email">
 
-        <label for="lastname">lastname</label> //TODO Observar bien en el examen, si el campo name está bien
+        <label for="lastname">lastname</label> <!-- //TODO Observar bien en el examen, si el campo ' name="" ' está bien -->
         <input type="text" name="lastname" id="lastname">
 
         <label for="pass">Pass</label>
@@ -28,6 +28,9 @@
 
         <label for="type">Type</label>
         <input type="text" name="type">
+
+        <label for="enrollment_year">Enrollment Year</label>
+        <input type="int" name="enrollment_year" id="enrollment_year">
 
         <button type="submit">Enviar</button>
     </form>
