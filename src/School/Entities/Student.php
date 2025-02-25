@@ -10,7 +10,7 @@
         use Timestampable;
 
         protected $enrollments=[];
-        private $enrollmentYear;
+        private $enrollmentYear = 0;
         private $user_id = 0; // Esto se usa para "store" el user_id
 
         function __construct($user_id,$uuid, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear=null){

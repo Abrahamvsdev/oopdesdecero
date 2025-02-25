@@ -60,7 +60,7 @@ class UserService{
                 $user->getPassword(),
                 $user->getDni(),
                 $user->getType(),
-                $_POST['enrollment_year']?? "" // Si existe, en caso contrario null, 
+                $_POST['enrollment_year']?? 0 // Si existe, en caso contrario null, 
             );
             $this->istudentRepository->save($student);
         }

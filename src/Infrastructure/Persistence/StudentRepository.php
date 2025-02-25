@@ -18,7 +18,7 @@ class StudentRepository implements IStudentRepository {
         $stmt->execute([
         'user_id' => $student->getUserId(),
         'dni' => $student->getDni(),
-        'enrollment_year' => $student->getEnrollmentYear()
+        'enrollment_year' => $student->getEnrollmentYear()?? null 
         ]);
     }
 

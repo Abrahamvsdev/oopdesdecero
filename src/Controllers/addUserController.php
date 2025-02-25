@@ -28,8 +28,8 @@ class addUserController
         $pass = $_POST['password'];
         $dni = $_POST['dni'];
         $type = $_POST['type'];
-        $enrollmentYear = $_POST['enrollment_year']?? -1;
-        
+        $enrollmentYear = $_POST['enrollment_year']?? null;
+
     
         // 2. "Validacion"
         if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($type)) {
@@ -64,7 +64,7 @@ class addUserController
         try {
             // TODO no introducir un user, si no primero, preguntar que type es y a raíz de eso meter directamente student o teacher
             if(isset($type) && $type==="student"){
-                $lastInsertId = $userService->save($user);
+                $userService->save($user);
 
             }
             echo "Usuario agregado correctamente."; // TODO Mejorar esta parte, esto deberia ir en vista, o a una pagina
