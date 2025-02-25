@@ -44,6 +44,7 @@ class UserService{
                     $user->getType()
                 );
                 $this->iteacherRepository->save($teacher);
+                
             }elseif ($userType === 'student') {
             $student = new Student(
                 $user->getUuid(),

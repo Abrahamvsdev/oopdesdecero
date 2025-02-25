@@ -14,13 +14,19 @@ class StudentRepository implements IStudentRepository {
 
     public function save(Student $student)
     {
-        $stmt = $this->db->prepare("INSERT INTO students(user_id, dni, enrollment_year) VALUES (:user_id, :dni, :enrollment_year)");
-        $stmt->execute([
-            'user_id' => $student->getUuid(), 
+        $sql = "INSERT INTO students(user_id, dni, enrollment_year) VALUES (:user_id, :dni, :enrollment_year)";
+        var_dump("Prepared SQL Query:", $sql);
+        var_dump("Parameter Array:", [
+            'user_id' => $student->getUuid(), // <--- CORRECTO: Usar $student->getUserId()
             'dni' => $student->getDni(),
-            'enrollment_year' => $student->getEnrollmentYear()  // TODO Añadir aquí, en la vista, addUserController, entidad(constructor, declarar con private, y el getter, pregutnar si el setter) 
+            'enrollment_year' => $student->getEnrollmentYear()
         ]);
-        
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            'user_id' => $student->getUuid(), // <--- Sigue usando $student->getUserId() para execute() también
+            'dni' => $student->getDni(),
+            'enrollment_year' => $student->getEnrollmentYear()
+        ]);
     }
 
     public function findById($id):?Student{

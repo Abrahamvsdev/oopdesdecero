@@ -10,12 +10,18 @@
         use Timestampable;
 
         protected $enrollments=[];
-        private $enrollmentYear = null;
+        private $enrollmentYear;
+        private $userId; // Esto se usa para "store" el user_id (Uuid)
 
-        function __construct($uuid = null, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear = null){
+        function __construct($uuid, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear){
             parent::__construct($uuid, $username, $lastname, $email, $password, $dni, $type);
-            $this->enrollmentYear= $enrollmentYear;  // TODO Implementar, de momento null
+            $this->enrollmentYear= $enrollmentYear;  
             $this->updateTimestamps();
+        }
+
+        public function getUserId() // Si no añado este metodo, no puedo pillar el Uuid de user para estudent
+        {
+            return $this->userId;
         }
 
 
