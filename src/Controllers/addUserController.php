@@ -67,6 +67,10 @@ class addUserController
                 $userService->save($user);
 
             }
+            if(isset($type) && $type==="teacher"){
+                $userService->save($user);
+
+            }
             echo "Usuario agregado correctamente."; // TODO Mejorar esta parte, esto deberia ir en vista, o a una pagina
         } catch (\Exception $e) {
             echo "Error al guardar el usuario: " . $e->getMessage(); // TODO Lo mismo de arriba

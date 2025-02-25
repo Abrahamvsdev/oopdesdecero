@@ -46,7 +46,7 @@ class UserService{
                     $user->getPassword(),
                     $user->getDni(),
                     $user->getType(),
-                    "" // TODO Aquí va department 
+                    $_POST['department_id']?? 0 // TODO Aquí va department 
                 );
                 $this->iteacherRepository->save($teacher);
                 

@@ -11,12 +11,12 @@
         use Timestampable;
         protected $user_id = 0;
         
-        protected $department;
+        protected $department_id = 0;
 
-        function __construct($user_id,$uuid= "",$username,$lastname,$email,$password,$type,$department){
-            parent::__construct($uuid, $username, $lastname, $email, $password, $type);
+        function __construct($user_id,$uuid= "",$username,$lastname,$email,$password,$type,$dni,$department_id){
+            parent::__construct($uuid, $username, $lastname, $email, $password,$dni, $type);
             $this->updateTimestamps();// Preguntar
-            $this->department = $department;
+            $this->department_id = $department_id;
             $this->user_id = $user_id;
         }
 
@@ -25,7 +25,7 @@
             return $this->user_id;
         }
 
-        public function addToDepartment(Department $dept){
-            $this->department=$dept;
+        public function addToDepartment(Department $department){
+            $this->department_id=$department;
         }
     }
