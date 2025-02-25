@@ -27,10 +27,10 @@ class addUserController
         $pass = $_POST['pass'];
         $dni = $_POST['dni'];
         $type = $_POST['type'];
-        $enrollmentYear = $_POST['enrollment_year'];
+        $enrollmentYear = $_POST['enrollment_year']?? null;
 
         // 2. "Validacion"
-        if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($dni) || empty($type) || empty($enrollmentYear)) {
+        if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($dni) || empty($type)) {
             echo "Error: Todos los campos son obligatorios."; // TODO Mejorar manejo de errores y vistas de error
             return;
         }

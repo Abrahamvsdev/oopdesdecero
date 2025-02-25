@@ -14,18 +14,11 @@ class StudentRepository implements IStudentRepository {
 
     public function save(Student $student)
     {
-        $sql = "INSERT INTO students(user_id, dni, enrollment_year) VALUES (:user_id, :dni, :enrollment_year)";
-        var_dump("Prepared SQL Query:", $sql);
-        var_dump("Parameter Array:", [
-            'user_id' => $student->getUuid(), // <--- CORRECTO: Usar $student->getUserId()
-            'dni' => $student->getDni(),
-            'enrollment_year' => $student->getEnrollmentYear()
-        ]);
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->db->prepare("INSERT INTO students(user_id, dni, enrollment_year) VALUES (:user_id, :dni, :enrollment_year)");
         $stmt->execute([
-            'user_id' => $student->getUuid(), // <--- Sigue usando $student->getUserId() para execute() también
-            'dni' => $student->getDni(),
-            'enrollment_year' => $student->getEnrollmentYear()
+        'user_id' => $student->getUserId(),
+        'dni' => $student->getDni(),
+        'enrollment_year' => $student->getEnrollmentYear()
         ]);
     }
 

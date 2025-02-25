@@ -73,8 +73,8 @@
             return $this;
         }
 
-        function setPass(string $pass){
-            $this->password=$pass;
+        function setPassword(string $password){
+            $this->password=$password;
             return $this;
         }
 

@@ -20,8 +20,8 @@
         <label for="lastname">lastname</label> <!-- //TODO Observar bien en el examen, si el campo ' name="" ' está bien -->
         <input type="text" name="lastname" id="lastname">
 
-        <label for="pass">Pass</label>
-        <input type="password" name="pass" id="pass">
+        <label for="password">Pass</label>
+        <input type="password" name="password" id="password">
 
         <label for="dni">Dni</label>
         <input type="text" name="dni" id="dni">
@@ -29,8 +29,8 @@
         <label for="type">Type</label>
         <input type="text" name="type">
 
-        <label for="enrollment_year">Enrollment Year</label>
-        <input type="int" name="enrollment_year" id="enrollment_year">
+        <!--<label for="enrollment_year">Enrollment Year</label>
+        <input type="number" name="enrollment_year" id="enrollment_year">-->
 
         <button type="submit">Enviar</button>
     </form>

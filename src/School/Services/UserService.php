@@ -31,7 +31,7 @@ class UserService{
             $this->iuserRepository->save($user); // Guarda el User en la tabla 'users'
             
             $userType = $user->getType();
-            $userId = $user->getUuid(); // Usamos el UUID del User como user_id(la clave foránea)
+            //$userId = $user->getUuid(); // Usamos el UUID del User como user_id(la clave foránea)
 
             if ($userType === 'teacher') {
                 $teacher = new Teacher(
