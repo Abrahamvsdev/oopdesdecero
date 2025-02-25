@@ -11,17 +11,18 @@
 
         protected $enrollments=[];
         private $enrollmentYear;
-        private $userId; // Esto se usa para "store" el user_id (Uuid)
+        private $user_id = 0; // Esto se usa para "store" el user_id
 
-        function __construct($uuid, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear=null){
-            parent::__construct($uuid, $username, $lastname, $email, $password, $type);
-            $this->enrollmentYear= $enrollmentYear; 
+        function __construct($user_id,$uuid, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear=null){
+            parent::__construct($uuid, $username, $lastname, $email, $password, $dni, $type);
+            $this->enrollmentYear = $enrollmentYear; 
+            $this->user_id = $user_id;
             $this->updateTimestamps();
         }
 
-        public function getUserId() // Si no añado este metodo, no puedo pillar el Uuid de user para estudent
+        public function getUserId() // Si no añado este metodo, no puedo pillar el id de user para estudent
         {
-            return $this->userId;
+            return $this->user_id;
         }
 
 

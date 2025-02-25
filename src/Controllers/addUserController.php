@@ -14,6 +14,7 @@ use App\Infrastructure\Database\DatabaseConnection;
 use App\Infrastructure\Persistence\TeacherRepository;
 use App\Infrastructure\Persistence\UserRepository;
 use App\Infrastructure\Persistence\StudentRepository;
+use App\School\Entities\Teacher;
 
 class addUserController
 {
@@ -27,12 +28,13 @@ class addUserController
         $pass = $_POST['password'];
         $dni = $_POST['dni'];
         $type = $_POST['type'];
-        $enrollmentYear = $_POST['enrollment_year']?? null;
-
+        $enrollmentYear = $_POST['enrollment_year']?? -1;
+        
+    
         // 2. "Validacion"
         if (empty($username) || empty($lastname) || empty($email) || empty($pass) || empty($type)) {
             echo "Error: Todos los campos son obligatorios."; // TODO Mejorar manejo de errores y vistas de error
-            return;
+            return; // TODO Aquí debería volver al form
         }
 
         // 3. Crear UUID
@@ -48,10 +50,9 @@ class addUserController
             $lastname,
             $email,
             $pass,
-            //$dni,
+            $dni,
             $type
         );
-
         // 5. Instanciar Servicios y Repositorio (Obtener conexión y repositorio correctamente (NO Interface))
         $db = DatabaseConnection::getConnection(); // Pillo DB
         $userRepository = new UserRepository($db); // Instancio el repo CONCRETO UserRepository
@@ -61,7 +62,11 @@ class addUserController
 
         //6. Guardo el usuario usando el servicio, y me quedo con el lastinsert
         try {
-            $lastInsertId = $userService->save($user);
+            // TODO no introducir un user, si no primero, preguntar que type es y a raíz de eso meter directamente student o teacher
+            if(isset($type) && $type==="student"){
+                $lastInsertId = $userService->save($user);
+
+            }
             echo "Usuario agregado correctamente."; // TODO Mejorar esta parte, esto deberia ir en vista, o a una pagina
         } catch (\Exception $e) {
             echo "Error al guardar el usuario: " . $e->getMessage(); // TODO Lo mismo de arriba

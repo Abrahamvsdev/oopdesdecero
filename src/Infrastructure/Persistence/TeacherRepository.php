@@ -7,6 +7,7 @@ use App\School\Repositories\ITeacherRepository;
 
 class TeacherRepository implements ITeacherRepository {
     private \PDO $db;
+    
 
     public function __construct(\PDO $db) {
         $this->db = $db;
@@ -16,7 +17,7 @@ class TeacherRepository implements ITeacherRepository {
     {
         $stmt = $this->db->prepare("INSERT INTO teachers(user_id) VALUES (:user_id)");
         $stmt->execute([
-            'user_id' => $teacher->getUuid(), // TODO Revisar esta lógica, uso el uuid para las foráneas en las entities, pero el lastinsertid tambien
+            'user_id' => $teacher->getUserId() 
         ]);
     }
 

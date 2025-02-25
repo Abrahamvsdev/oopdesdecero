@@ -10,20 +10,20 @@
         private string $username;
         private string $lastname;
         private string $password;
-        private string $dni;
+        private string $dni="";
         private string $uuid;
         private string $type;
         private ?\DateTime $createdAt=null;
         private ?\DateTime $updatedAt=null;
 
 
-        function __construct($uuid = null,$username, $lastname,$email,$password,$type){
+        function __construct($uuid = null,$username, $lastname,$email,$password,$dni,$type){
             $this->uuid = $uuid ?? Uuid::uuid4()->toString();
             $this->email=$email;
             $this->username=$username;
             $this->lastname=$lastname;
             $this->password=$password;
-            //$this->dni=$dni;
+            $this->dni=$dni;
             $this->type=$type;
         }
         
