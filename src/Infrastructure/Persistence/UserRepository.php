@@ -13,14 +13,14 @@
         }
 
         function save(User $user){
-            $stmt=$this->db->prepare("INSERT INTO users(uuid, username, lastname, email, password, dni, type) VALUES(:uuid,:username,:lastname,:email,:password,:dni,:type)");
+            $stmt=$this->db->prepare("INSERT INTO users(uuid, username, lastname, email, password, type) VALUES(:uuid,:username,:lastname,:email,:password,:type)");
             $stmt->execute([
                 'uuid'=>$user->getUuid(),
                 'username'=>$user->getUsername(),
                 'lastname'=>$user->getLastName(),
                 'email'=>$user->getEmail(),
                 'password'=>$user->getPassword(),
-                'dni'=>$user->getDni(),
+                'dni'=>$user->getDni()?? null,
                 'type'=>$user->getType()
             ]);
 

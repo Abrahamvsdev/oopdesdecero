@@ -14,8 +14,8 @@
         private $userId; // Esto se usa para "store" el user_id (Uuid)
 
         function __construct($uuid, $username, $lastname, $email, $password, $dni, $type, $enrollmentYear=null){
-            parent::__construct($uuid, $username, $lastname, $email, $password, $dni, $type);
-            $this->enrollmentYear= $enrollmentYear;  
+            parent::__construct($uuid, $username, $lastname, $email, $password, $type);
+            $this->enrollmentYear= $enrollmentYear; 
             $this->updateTimestamps();
         }
 

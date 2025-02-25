@@ -40,7 +40,7 @@ class UserService{
                     $user->getLastName(),
                     $user->getEmail(),
                     $user->getPassword(),
-                    $user->getDni(),
+                    //$user->getDni(),
                     $user->getType()
                 );
                 $this->iteacherRepository->save($teacher);

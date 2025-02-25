@@ -17,13 +17,13 @@
         private ?\DateTime $updatedAt=null;
 
 
-        function __construct($uuid = null,$username, $lastname,$email,$password,$dni,$type){
+        function __construct($uuid = null,$username, $lastname,$email,$password,$type){
             $this->uuid = $uuid ?? Uuid::uuid4()->toString();
             $this->email=$email;
             $this->username=$username;
             $this->lastname=$lastname;
             $this->password=$password;
-            $this->dni=$dni;
+            //$this->dni=$dni;
             $this->type=$type;
         }
         

@@ -13,8 +13,8 @@
         
         protected $department;
 
-        function __construct($uuid = null,$username,$lastname,$email,$password,$dni,$type){
-            parent::__construct($uuid, $username, $lastname, $email, $password, $dni, $type);
+        function __construct($uuid = null,$username,$lastname,$email,$password,$type){
+            parent::__construct($uuid, $username, $lastname, $email, $password, $type);
             $this->updateTimestamps();// Preguntar
         }
 
