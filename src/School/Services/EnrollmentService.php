@@ -5,6 +5,7 @@
     use App\School\Entities\Course;
     use App\Infrastructure\Persistence\StudentRepository;
     use App\Infrastructure\Persistence\EnrollmentRepository;
+    use App\School\Entities\Enrollment;
 
     class EnrollmentService{
         private StudentRepository $studentRepository;
@@ -13,11 +14,13 @@
         function __construct(StudentRepository $studentRepo, EnrollmentRepository $enrollmentRepo)
         {
             $this->studentRepository=$studentRepo;
+            
             $this->enrollmentRepository=$enrollmentRepo;
         }
 
         function enrollStudentInCourse(Student $student,Course $course){
             $student=$this->studentRepository->findByDni($student->getDni());
+
             if(!$student){
                 throw new \Exception("Student not found");
             }

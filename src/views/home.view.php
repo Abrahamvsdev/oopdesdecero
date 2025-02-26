@@ -63,7 +63,8 @@
     <div class="container">
         <h1>Bienvenido a <?=$name;?></h1> 
         <p class="lead">Este es el panel de administración de CEFPNuria.</p> 
-        <a href="/addUser" class="button-link">Añadir Estudiante/Profesor</a> 
+        <a href="/addUser" class="button-link">Añadir Estudiante/Profesor</a>
+        <a href="/addDepartment" class="button-link">Añadir Departamento</a>  
     </div>
 </body>
 </html>

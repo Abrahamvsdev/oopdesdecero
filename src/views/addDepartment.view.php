@@ -8,8 +8,8 @@
 <body>
     <h1>Añadir Nuevo Departamento</h1>
     <form action="/storeDepartment" method="POST">
-        <label for="department_name">Nombre del Departamento:</label><br>
-        <input type="text" id="department_name" name="department_name"><br><br>
+        <label for="name">Nombre del Departamento:</label><br>
+        <input type="text" id="name" name="name"><br><br>
         <input type="submit" value="Guardar Departamento">
     </form>
     <a href="/">Volver al Inicio</a>

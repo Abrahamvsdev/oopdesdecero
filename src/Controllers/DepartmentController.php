@@ -12,7 +12,7 @@ class DepartmentController{
 
     // 1. Recoger datos del form
     function storeDepartment(){ 
-        $departmentName = $_POST['department_name'] ?? ''; 
+        $departmentName = $_POST['name']; 
 
         
         
