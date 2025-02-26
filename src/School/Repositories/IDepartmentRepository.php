@@ -6,5 +6,5 @@ use App\School\Entities\Department;
     interface IDepartmentRepository{
         public function save(Department $department);
         public function findById($id);
-        
+        public function findAll();
     }

@@ -29,5 +29,15 @@ class DepartmentRepository implements IDepartmentRepository{
         return $stmt->fetchObject(Department::class);
     }
 
+    public function findAll(){
+        $stmt = $this->db->query("SELECT * FROM departments");
+        $departmentsData = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $departments = [];
+        foreach ($departmentsData as $departmentData) {
+            $departments[] = new Department($departmentData['name'], $departmentData['id']); 
+        }
+        return $departments;
+    }
+
     
 }

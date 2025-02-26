@@ -62,7 +62,7 @@ class addUserController
 
         //6. Guardo el usuario usando el servicio, y me quedo con el lastinsert
         try {
-            // TODO no introducir un user, si no primero, preguntar que type es y a raíz de eso meter directamente student o teacher
+            
             if(isset($type) && $type === "teacher"){
                 $userService->save($user);
                 

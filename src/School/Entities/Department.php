@@ -4,16 +4,21 @@
 
     class Department{
         protected $name;
-        
+        protected $id = null;
         
 
-        function __construct($name)
+        function __construct($name, $id = null)
         {
             $this->name = $name;
+            $this->id = $id;
             
         }
 
-        // TODO Voy por aquí, estoy obteniendo la lógica de cómo pillar el ID de la DB, lastinsertid pinta bien
+        public function getId() {
+            return $this->id;
+        }
+
+        
 
         public function getName(){
             $this->name;

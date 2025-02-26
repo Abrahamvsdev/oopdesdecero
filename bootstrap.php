@@ -7,6 +7,7 @@ $dotenv->load();
 
 use App\Controllers\addUserController;
     use App\Controllers\HomeController;
+    use App\Controllers\DepartmentController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;
     use App\School\Services\EnrollmentService;
@@ -27,4 +28,6 @@ use App\Controllers\addUserController;
             ->addRoute('GET','/teachers',[new HomeController(),'teachers'])
             ->addRoute('GET','/addUser',[new HomeController(),'addUser'])
             ->addRoute('POST','/addUser',[new addUserController(),'storeUser']) // 'storeUser' será el nombre del método
-            ->addRoute('GET','/addUserSuccess',[new HomeController(),'index']);
+            ->addRoute('GET','/addUserSuccess',[new HomeController(),'index'])
+            ->addRoute('GET','/addDepartment',[new DepartmentController(),'addDepartmentForm']) // Añadir
+            ->addRoute('POST','/storeDepartment',[new DepartmentController(),'storeDepartment']); // Guardar
