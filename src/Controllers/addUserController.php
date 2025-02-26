@@ -63,11 +63,14 @@ class addUserController
         //6. Guardo el usuario usando el servicio, y me quedo con el lastinsert
         try {
             // TODO no introducir un user, si no primero, preguntar que type es y a raíz de eso meter directamente student o teacher
-            if(isset($type) && $type==="student" || $type === "teacher"){
+            if(isset($type) && $type === "teacher"){
                 $userService->save($user);
-                $_SESSION['success_message'] = "Usuario agregado correctamente.";
-                header('Location: /addUserSuccess');
-                exit();
+                
+                if(isset($lastInsertId)){
+                    $_SESSION['success_message'] = "Usuario agregado correctamente.";
+                    header('Location: /addUserSuccess');
+                    exit();
+                }
             }
             
             echo "Usuario agregado correctamente."; // TODO Mejorar esta parte, esto deberia ir en vista, o a una pagina

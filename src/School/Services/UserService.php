@@ -45,7 +45,8 @@ class UserService{
                     $user->getPassword(),
                     $user->getDni(),
                     $user->getType(),
-                    $_POST['department_id']?? 0 
+                    //$_POST['department_id']?? 0 como no tengo departamento, no puedo asignar una FK
+                    null
                 );
                 $this->iteacherRepository->save($teacher);
                 
