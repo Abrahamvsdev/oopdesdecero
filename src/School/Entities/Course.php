@@ -4,14 +4,44 @@
     use App\School\Entities\Subject;
 
     class Course{
-        protected $name;
-        protected $subjects=[];
 
-        function __construct(string $name){
+        protected $id = null;
+        protected $name;
+        protected $subjects = [];
+        protected $degreeId = null;
+
+        function __construct($name, $degreeId = null, $id = null)
+        {
             $this->name=$name;
+            $this->degreeId = $degreeId;
+            $this->id = $id;
         }
 
-        function addSubject(Subject $subject){
+        public function getId() {
+            return $this->id;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+    
+        public function setName($name)
+        {
+            $this->name = $name;
+        }
+
+        public function getDegreeId()
+        {
+            return $this->degreeId;
+        }
+    
+        public function setDegreeId($degreeId){
+            $this->degreeId = $degreeId;
+        }
+
+        function addSubject(Subject $subject)
+        {
             $this->subjects[]=$subject;
             return $this;
         }

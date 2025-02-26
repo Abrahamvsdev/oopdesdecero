@@ -8,7 +8,7 @@ use App\Infrastructure\Persistence\DepartmentRepository;
 use App\Infrastructure\Database\DatabaseConnection; 
 
 class DepartmentController{
-    private DepartmentService $departmentService;
+    protected DepartmentService $departmentService;
 
     // 1. Recoger datos del form
     function storeDepartment(){ 

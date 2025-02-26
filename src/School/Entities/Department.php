@@ -21,7 +21,7 @@
         
 
         public function getName(){
-            $this->name;
+            return $this->name;
         }
 
         public function setName(string $name){

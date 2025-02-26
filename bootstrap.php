@@ -5,7 +5,8 @@ require __DIR__.'/vendor/autoload.php';
 $dotenv=Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-use App\Controllers\addUserController;
+    use App\Controllers\CourseController;
+    use App\Controllers\addUserController;
     use App\Controllers\HomeController;
     use App\Controllers\DepartmentController;
     use App\Infrastructure\Database\DatabaseConnection;
@@ -30,4 +31,6 @@ use App\Controllers\addUserController;
             ->addRoute('POST','/addUser',[new addUserController(),'storeUser']) // 'storeUser' será el nombre del método
             ->addRoute('GET','/addUserSuccess',[new HomeController(),'index'])
             ->addRoute('GET','/addDepartment',[new DepartmentController(),'addDepartmentForm']) // Añadir
-            ->addRoute('POST','/storeDepartment',[new DepartmentController(),'storeDepartment']); // Guardar
+            ->addRoute('POST','/storeDepartment',[new DepartmentController(),'storeDepartment']) // Guardar
+            ->addRoute('GET','/addCourse',[new CourseController(),'addCourseForm']) // Formulario para añadir curso
+            ->addRoute('POST','/storeCourse',[new CourseController(),'storeCourse']); // Guardar courso
