@@ -26,5 +26,5 @@ use App\Controllers\addUserController;
     $router->addRoute('GET','/',[new HomeController(),'index'])
             ->addRoute('GET','/teachers',[new HomeController(),'teachers'])
             ->addRoute('GET','/addUser',[new HomeController(),'addUser'])
-            ->addRoute('POST','/addUser',[new addUserController(),'storeUser']); // 'storeUser' será el nombre del método
-
+            ->addRoute('POST','/addUser',[new addUserController(),'storeUser']) // 'storeUser' será el nombre del método
+            ->addRoute('GET','/addUserSuccess',[new HomeController(),'index']);

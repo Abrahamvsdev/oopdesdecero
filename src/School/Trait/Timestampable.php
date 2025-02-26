@@ -8,7 +8,7 @@
         public function updateTimestamps(){
             $now= new \DateTime();
             $this->updatedAt=$now;
-            if(!$this->createdAt){
+            if(isset($this->createdAt) && !$this->createdAt){
                 $this->createdAt=$now;
             }
         }

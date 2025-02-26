@@ -10,8 +10,7 @@
     class Teacher extends User{
         use Timestampable;
         protected $user_id = 0;
-        
-        protected $department_id = 0;
+        protected $department_id;
 
         function __construct($user_id,$uuid= "",$username,$lastname,$email,$password,$type,$dni,$department_id){
             parent::__construct($uuid, $username, $lastname, $email, $password,$dni, $type);
@@ -23,6 +22,10 @@
         public function getUserId()
         {
             return $this->user_id;
+        }
+
+        public function getDepartmentId(){
+            return $this->department_id;
         }
 
         public function addToDepartment(Department $department){

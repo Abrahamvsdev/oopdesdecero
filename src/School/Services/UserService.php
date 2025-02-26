@@ -34,7 +34,6 @@ class UserService{
             $userType = $user->getType();
             $user_id = $lastInsertId;
 
-            //$userId = $user->getUuid(); // Usamos el UUID del User como user_id(la clave foránea)
 
             if ($userType === 'teacher') {
                 $teacher = new Teacher(
@@ -46,7 +45,7 @@ class UserService{
                     $user->getPassword(),
                     $user->getDni(),
                     $user->getType(),
-                    $_POST['department_id']?? 0 // TODO Aquí va department 
+                    $_POST['department_id']?? 0 
                 );
                 $this->iteacherRepository->save($teacher);
                 
@@ -60,7 +59,7 @@ class UserService{
                 $user->getPassword(),
                 $user->getDni(),
                 $user->getType(),
-                $_POST['enrollment_year']?? 0 // Si existe, en caso contrario null, 
+                $_POST['enrollment_year']?? 0 
             );
             $this->istudentRepository->save($student);
         }

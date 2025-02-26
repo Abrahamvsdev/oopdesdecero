@@ -15,9 +15,10 @@ class TeacherRepository implements ITeacherRepository {
 
     public function save(Teacher $teacher)
     {
-        $stmt = $this->db->prepare("INSERT INTO teachers(user_id) VALUES (:user_id)");
+        $stmt = $this->db->prepare("INSERT INTO teachers(user_id,department_id) VALUES (:user_id, :department_id)");
         $stmt->execute([
-            'user_id' => $teacher->getUserId() 
+            'user_id' => $teacher->getUserId(),
+            'department_id'=> $teacher->getDepartmentId()
         ]);
     }
 
