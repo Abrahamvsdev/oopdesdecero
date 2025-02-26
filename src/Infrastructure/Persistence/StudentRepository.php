@@ -28,4 +28,10 @@ class StudentRepository implements IStudentRepository {
         return $stmt->fetchObject(Student::class);
     }
 
+    public function findByDni($dni):?Student{
+        $stmt=$this->db->prepare("SELECT * FROM students WHERE dni=:dni");
+        $stmt->execute(['dni'=>$dni]);
+        return $stmt->fetchObject(Student::class);
+    }
+
 }
