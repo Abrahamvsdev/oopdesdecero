@@ -6,5 +6,5 @@ use App\School\Entities\Enrollment;
 
 interface IEnrollmentRepository{
     function save(Enrollment $enrollment);
-    function findByDni(string $dni);
+    function findById($id);
 }

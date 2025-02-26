@@ -24,13 +24,12 @@ class CourseRepository implements ICourseRepository{
     public function findById($id){
         $stmt=$this->db->prepare("SELECT * FROM courses WHERE id=:id");
         $stmt->execute(['id'=>$id]);
-        $courseData = $stmt->fetch(\PDO::FETCH_ASSOC);
-        if ($courseData === false) {
-            return null; 
-        }
-        return new Course($courseData['name'], $courseData['degree_id'], $courseData['id']);
+        $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $stmt->fetchObject(Course::class);
+        
     }
 
+        
     public function findAll(){
         $stmt = $this->db->query("SELECT * FROM courses");
         $coursesData = $stmt->fetchAll(\PDO::FETCH_ASSOC);

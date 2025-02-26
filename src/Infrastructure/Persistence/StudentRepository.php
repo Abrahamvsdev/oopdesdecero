@@ -22,7 +22,7 @@ class StudentRepository implements IStudentRepository {
         ]);
     }
 
-    public function findById($id):?Student{
+    public function findById($id){
         $stmt=$this->db->prepare("SELECT * FROM students WHERE id=:id");
         $stmt->execute(['id'=>$id]);
         return $stmt->fetchObject(Student::class);

@@ -63,12 +63,17 @@ class UserService{
                 $_POST['enrollment_year']?? 0 
             );
             $this->istudentRepository->save($student);
+            }
         }
-    }
+
         public function findByDni(String $dni):?User{
             return $this->iuserRepository->findByDni($dni);
         }
 
+        public function findAllStudents()
+        {
+            return $this->iuserRepository->findByType('student');
+        }
 
 
 }

@@ -51,7 +51,8 @@
             border-radius: 8px; 
             font-size: 1.2em;
             font-weight: 600;
-            transition: background-color 0.3s ease; 
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
         }
 
         .button-link:hover {
@@ -65,6 +66,8 @@
         <p class="lead">Este es el panel de administración de CEFPNuria.</p> 
         <a href="/addUser" class="button-link">Añadir Estudiante/Profesor</a>
         <a href="/addDepartment" class="button-link">Añadir Departamento</a>  
+        <a href="/addCourse" class="button-link">Añadir Curso</a>  
+        <a href="/addEnrollment" class="button-link">Añadir Inscripción</a> 
     </div>
 </body>
 </html>

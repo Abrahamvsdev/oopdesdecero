@@ -11,9 +11,9 @@ $dotenv->load();
     use App\Controllers\DepartmentController;
     use App\Infrastructure\Database\DatabaseConnection;
     use App\Infrastructure\Routing\Router;
-    use App\School\Services\EnrollmentService;
-    use App\Infrastructure\Persistence\EnrollmentRepository;
     
+    use App\Infrastructure\Persistence\EnrollmentRepository;
+    use App\Controllers\EnrollmentController;
     use App\School\Services\Services;
     
 
@@ -33,4 +33,6 @@ $dotenv->load();
             ->addRoute('GET','/addDepartment',[new DepartmentController(),'addDepartmentForm']) // Añadir
             ->addRoute('POST','/storeDepartment',[new DepartmentController(),'storeDepartment']) // Guardar
             ->addRoute('GET','/addCourse',[new CourseController(),'addCourseForm']) // Formulario para añadir curso
-            ->addRoute('POST','/storeCourse',[new CourseController(),'storeCourse']); // Guardar courso
+            ->addRoute('POST','/storeCourse',[new CourseController(),'storeCourse']) // Guardar courso
+            ->addRoute('GET','/enrollment',[new EnrollmentController(),'showEnrollmentForm']) // Formulario de enrollment
+            ->addRoute('POST','/enrollment',[new EnrollmentController(),'enrollStudent']);
