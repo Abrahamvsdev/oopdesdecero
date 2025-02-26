@@ -61,7 +61,7 @@ class EnrollmentController{
             'students' => $students,
             'courses' => $courses,
         ];
-        echo view('/enrollmentForm', $data);
+        echo view('/enrollmentForm');
     }
 
 
